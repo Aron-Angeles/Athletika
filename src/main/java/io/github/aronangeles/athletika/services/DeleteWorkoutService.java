@@ -1,6 +1,5 @@
 package io.github.aronangeles.athletika.services;
 
-import io.github.aronangeles.athletika.dto.WorkoutDTO;
 import io.github.aronangeles.athletika.model.Query;
 import io.github.aronangeles.athletika.model.Workout;
 import io.github.aronangeles.athletika.repositories.WorkoutRepository;

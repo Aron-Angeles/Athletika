@@ -4,8 +4,8 @@ import lombok.Getter;
 
 @Getter
 public class UpdateWorkoutCommand {
-    private Integer id;
-    private Workout workout;
+    private final Integer id;
+    private final Workout workout;
 
     public UpdateWorkoutCommand(Integer id, Workout workout) {
         this.id = id;
