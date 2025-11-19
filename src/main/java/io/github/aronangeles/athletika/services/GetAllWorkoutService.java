@@ -8,26 +8,24 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
+import java.util.List;
 
 @Service
-public class DeleteWorkoutService implements Query<Integer, Void> {
+public class GetAllWorkoutService implements Query<Void,List<WorkoutDTO>> {
 
     private final WorkoutRepository workoutRepository;
 
-    public DeleteWorkoutService(WorkoutRepository workoutRepository) {
+    public GetAllWorkoutService(WorkoutRepository workoutRepository) {
         this.workoutRepository = workoutRepository;
     }
 
     @Override
-    public ResponseEntity<Void> execute(Integer input) {
-        Optional<Workout> workoutOptional = workoutRepository.findById(input);
+    public ResponseEntity<List<WorkoutDTO>> execute(Void input) {
+        List<Workout> workouts = workoutRepository.findAll();
+        List<WorkoutDTO> workoutDTOs = workouts.stream().map(WorkoutDTO::new).toList();
 
-        if (workoutOptional.isPresent()) {
-            workoutRepository.deleteById(input);
-            return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+        return ResponseEntity.status(HttpStatus.OK).body(workoutDTOs);
 
-        }
-        return null;
     }
+
 }
