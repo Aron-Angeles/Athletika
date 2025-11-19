@@ -6,9 +6,11 @@ import io.github.aronangeles.athletika.model.UpdateWorkoutCommand;
 import io.github.aronangeles.athletika.model.Workout;
 import io.github.aronangeles.athletika.repositories.WorkoutRepository;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
+@Service
 public class UpdateWorkoutService implements Query<UpdateWorkoutCommand, WorkoutDTO> {
 
     private final WorkoutRepository workoutRepository;
