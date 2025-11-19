@@ -9,9 +9,9 @@ import lombok.Data;
 public class Workout {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
-    private int id;
+    private Integer id;
 
     @Column(name="focus")
     private String focus;
@@ -20,9 +20,9 @@ public class Workout {
     private String name;
 
     @Column(name="sets")
-    private int sets;
+    private Integer sets;
 
     @Column(name="reps")
-    private int reps;
+    private Integer reps;
 
 }
