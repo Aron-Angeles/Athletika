@@ -13,7 +13,7 @@ public class WorkoutDTO {
 
     public  WorkoutDTO(Workout workout) {
         this.id = workout.getId();
-        this.name = workout.getName();
+        this.name = String.valueOf(workout.getName());
         this.sets = workout.getSets();
         this.reps = workout.getReps();
     }
