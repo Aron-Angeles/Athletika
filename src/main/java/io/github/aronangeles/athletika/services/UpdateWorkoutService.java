@@ -5,6 +5,7 @@ import io.github.aronangeles.athletika.model.Query;
 import io.github.aronangeles.athletika.model.UpdateWorkoutCommand;
 import io.github.aronangeles.athletika.model.Workout;
 import io.github.aronangeles.athletika.repositories.WorkoutRepository;
+import io.github.aronangeles.athletika.validators.WorkoutValidator;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -27,6 +28,7 @@ public class UpdateWorkoutService implements Query<UpdateWorkoutCommand, Workout
 
         if (workoutOptional.isPresent()) {
             Workout workout = input.getWorkout();
+            WorkoutValidator.validate(workout);
             workout.setId(input.getId());
             workoutRepository.save(workout);
             return ResponseEntity.ok(new WorkoutDTO(workout));
