@@ -14,10 +14,10 @@ public class Workout {
     private Integer id;
 
     @Column(name="focus")
-    private String focus;
+    private WorkoutFocus focus;
 
     @Column(name="name")
-    private String name;
+    private WorkoutNames name;
 
     @Column(name="sets")
     private Integer sets;
