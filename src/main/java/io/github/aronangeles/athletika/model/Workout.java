@@ -14,9 +14,11 @@ public class Workout {
     private Integer id;
 
     @Column(name="focus")
+    @Enumerated(EnumType.STRING)
     private WorkoutFocus focus;
 
     @Column(name="name")
+    @Enumerated(EnumType.STRING)
     private WorkoutNames name;
 
     @Column(name="sets")
