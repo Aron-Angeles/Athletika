@@ -1,5 +1,6 @@
 package io.github.aronangeles.athletika.services;
 
+import io.github.aronangeles.athletika.exceptions.WorkoutNotFoundException;
 import io.github.aronangeles.athletika.model.Query;
 import io.github.aronangeles.athletika.model.Workout;
 import io.github.aronangeles.athletika.repositories.WorkoutRepository;
@@ -27,6 +28,7 @@ public class DeleteWorkoutService implements Query<Integer, Void> {
             return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
 
         }
-        return null;
+
+        throw new WorkoutNotFoundException();
     }
 }
