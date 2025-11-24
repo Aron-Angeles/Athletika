@@ -2,6 +2,7 @@ package io.github.aronangeles.athletika.services;
 
 import io.github.aronangeles.athletika.dto.WorkoutDTO;
 import io.github.aronangeles.athletika.model.Query;
+import io.github.aronangeles.athletika.model.WorkoutFocus;
 import io.github.aronangeles.athletika.repositories.WorkoutRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -20,7 +21,7 @@ public class SearchWorkoutService implements Query<String, List<WorkoutDTO>> {
 
     @Override
     public ResponseEntity<List<WorkoutDTO>> execute(String input) {
-        return ResponseEntity.ok(workoutRepository.findByFocus(input)
+        return ResponseEntity.ok(workoutRepository.findByFocus(WorkoutFocus.valueOf(input))
                 .stream()
                 .map(WorkoutDTO::new)
                 .toList());

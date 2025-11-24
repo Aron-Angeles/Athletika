@@ -1,6 +1,7 @@
 package io.github.aronangeles.athletika.services;
 
 import io.github.aronangeles.athletika.dto.WorkoutDTO;
+import io.github.aronangeles.athletika.exceptions.WorkoutNotFoundException;
 import io.github.aronangeles.athletika.model.Query;
 import io.github.aronangeles.athletika.model.UpdateWorkoutCommand;
 import io.github.aronangeles.athletika.model.Workout;
@@ -34,7 +35,7 @@ public class UpdateWorkoutService implements Query<UpdateWorkoutCommand, Workout
             return ResponseEntity.ok(new WorkoutDTO(workout));
         }
 
-        return ResponseEntity.notFound().build();
+        throw new WorkoutNotFoundException();
 
     }
 }
