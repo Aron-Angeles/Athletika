@@ -6,7 +6,6 @@ import io.github.aronangeles.athletika.model.WorkoutFocus;
 import io.github.aronangeles.athletika.model.WorkoutNames;
 import io.github.aronangeles.athletika.repositories.WorkoutRepository;
 import io.github.aronangeles.athletika.services.GetAllWorkoutService;
-import org.hibernate.jdbc.Work;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
