@@ -25,6 +25,5 @@ public class SearchWorkoutService implements Query<String, List<WorkoutDTO>> {
                 .stream()
                 .map(WorkoutDTO::new)
                 .toList());
-
     }
 }
