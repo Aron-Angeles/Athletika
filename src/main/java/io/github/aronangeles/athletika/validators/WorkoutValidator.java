@@ -3,12 +3,23 @@ package io.github.aronangeles.athletika.validators;
 import io.github.aronangeles.athletika.exceptions.ErrorMessages;
 import io.github.aronangeles.athletika.exceptions.WorkoutNotValidException;
 import io.github.aronangeles.athletika.model.Workout;
+import io.github.aronangeles.athletika.model.WorkoutFocus;
 import org.springframework.util.StringUtils;
 
 public class WorkoutValidator {
 
     private WorkoutValidator() {
 
+    }
+
+    public static void validate(String string){
+
+        for(WorkoutFocus workoutFocus : WorkoutFocus.values()){
+            if(workoutFocus.toString().equals(string)){
+                return;
+            }
+        }
+        throw new WorkoutNotValidException(ErrorMessages.INVALID_FOCUS.getMessage());
     }
 
     public static void validate(Workout workout) {
